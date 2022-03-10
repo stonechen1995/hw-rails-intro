@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <!--  This file is app/views/movies/index.html.erb -->
 <h2>All Movies</h2>
 
@@ -6,12 +8,16 @@
 <table class="table table-striped col-md-12" id="movies">
   <thead>
     <tr>
-      <!--<th>Movie Title</th>-->
-      <th class=<%= @class_title %>><a href='/movies/?sort=title' id='title_header'>Movie Titles</a></th>
-      <!--<th class>Movie Title</th>-->
+      <th class="<%= ("hilite" if @hilite == "title")%>">
+        <%= link_to "Movie Title", :sort => "title", :id => "title_header" %> 
+      </th>
+      
       <th>Rating</th>
-      <!--<th>Release Date</th>-->
-      <th class=<%= @class_date %>><a href='/movies/?sort=release_date' id='release_date_header'>Release Date</a></th>
+      
+      <th class="<%= ("hilite" if @hilite == "release_date")%>">
+         <%= link_to "Release Date", :sort => "release_date", :id => "release_date_header" %> 
+      </th>
+      
       <th>More Info</th>
     </tr>
   </thead>
