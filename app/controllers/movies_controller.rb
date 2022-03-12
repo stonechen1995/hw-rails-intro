@@ -14,11 +14,11 @@ class MoviesController < ApplicationController
     session[:sort] = @sort 
     @all_ratings = Movie.all_ratings
     params[:ratings].nil? ? @selected_ratings = session[:ratings] : @selected_ratings = params[:ratings].keys
-    @selected_ratings.each do |rate|
-      if !(@all_ratings.include?(rate)) 
-        @selected_ratings = session[:ratings];
-      end
-    end
+    # @selected_ratings.each do |rate|
+    #   if !(@all_ratings.include?(rate)) 
+    #     @selected_ratings = session[:ratings];
+    #   end
+    # end
     session[:ratings] = @selected_ratings
     @movies = Movie.where(rating: @selected_ratings).order(@sort)
     @hilite = @sort
